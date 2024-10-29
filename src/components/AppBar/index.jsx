@@ -16,7 +16,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["lost", "found", "about us"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function AppNavBar() {
@@ -30,7 +30,7 @@ function AppNavBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
   };
 
@@ -38,8 +38,12 @@ function AppNavBar() {
     setAnchorElUser(null);
   };
 
+  const handleClick = (page) => {
+    window.location = `/${page}`;
+  };
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#181818" }}>
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -59,7 +63,7 @@ function AppNavBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            LOSTITEM
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -90,7 +94,7 @@ function AppNavBar() {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleClick(page)}>
                   <Typography sx={{ textAlign: "center" }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -113,13 +117,13 @@ function AppNavBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            LOSTITEM
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleClick(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
@@ -128,7 +132,7 @@ function AppNavBar() {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>

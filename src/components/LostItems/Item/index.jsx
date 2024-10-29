@@ -46,14 +46,30 @@ const ExpandMore = styled((props) => {
 
 export default function Item({ title, image, date, description }) {
   const [expanded, setExpanded] = useState(false);
+  const [heartColor, setHeartColor] = useState("#FFFFFF");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const handleHeart = () => {
+    if (heartColor === "#FFFFFF") setHeartColor("#FF0132");
+    else setHeartColor("#FFFFFF");
+  };
+
   return (
-    <Card sx={{ width: 600 }}>
+    <Card
+      sx={{
+        width: 600,
+        marginTop: 3,
+        marginBottom: 3,
+        backgroundColor: "#181818",
+        color: "#FFFFFF",
+        borderRadius: 5,
+      }}
+    >
       <CardHeader
+        sx={{ color: "#FFFFFF" }}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             R
@@ -61,31 +77,41 @@ export default function Item({ title, image, date, description }) {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <MoreVertIcon sx={{ color: "#FFFFFF" }} />
           </IconButton>
         }
-        title={title}
-        subheader={date}
+        title={`${title} ${date}`}
       />
-      <CardMedia component="img" height="500" image={image} alt={title} />
+      <CardMedia
+        component="img"
+        height="500"
+        image={image}
+        alt={title}
+        sx={{ width: "400px", marginLeft: "100px", borderRadius: 5 }}
+      />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon
+            sx={{ color: heartColor }}
+            onClick={() => handleHeart()}
+          />
         </IconButton>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <ShareIcon sx={{ color: "#FFFFFF" }} />
         </IconButton>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          sx={{ color: "#FFFFFF" }}
         >
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+          <Typography sx={{ marginBottom: 2 }}>Description:</Typography>
           <Typography sx={{ marginBottom: 2 }}>{description}</Typography>
         </CardContent>
       </Collapse>

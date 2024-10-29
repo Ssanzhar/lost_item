@@ -22,8 +22,8 @@ function Home() {
       style={{
         display: "flex",
         backgroundColor: "#2A2A2A",
-        height: "94.75vh",
-        justifyContent: "center",
+        height: "92.7vh",
+        justifyContent: "space-around",
         alignItems: "center",
       }}
     >

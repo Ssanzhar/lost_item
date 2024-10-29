@@ -8,7 +8,7 @@ function LostItems() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginTop: 5,
+        backgroundColor: "#1F1F1F",
       }}
     >
       {backData.map((item) => (
