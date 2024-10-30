@@ -66,6 +66,8 @@ export default function Item({ title, image, date, description }) {
         backgroundColor: "#181818",
         color: "#FFFFFF",
         borderRadius: 5,
+        border: "solid",
+        borderColor: "#242424",
       }}
     >
       <CardHeader

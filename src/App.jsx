@@ -3,6 +3,7 @@ import Found from "./routes/Found";
 import Lost from "./routes/Lost";
 import Home from "./routes/Home";
 import AppNavBar from "./components/AppBar";
+import AboutUs from "./routes/AboutUs";
 
 function App() {
   const routes = useRoutes([
@@ -17,6 +18,10 @@ function App() {
     {
       path: "/lost",
       element: <Lost />,
+    },
+    {
+      path: "/about-us",
+      element: <AboutUs />,
     },
   ]);
 

@@ -21,7 +21,7 @@ export default function ChoiceButton({ title, path }) {
         marginRight: 3,
       }}
     >
-      <Card variant="outlined" sx={{ height: "auto", bgcolor: "black" }}>
+      <Card variant="outlined" sx={{ height: "auto", bgcolor: "#1E1E1E" }}>
         {card}
       </Card>
     </Box>

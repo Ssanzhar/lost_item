@@ -39,11 +39,15 @@ function AppNavBar() {
   };
 
   const handleClick = (page) => {
-    window.location = `/${page}`;
+    if (page === "about us") window.location = `/about-us`;
+    else window.location = `/${page}`;
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#181818" }}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "#181818", height: "5.3vh" }}
+    >
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
