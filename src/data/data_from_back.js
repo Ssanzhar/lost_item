@@ -17,3 +17,14 @@ export const backData = [
     description: "chess board",
   },
 ];
+
+const getDataFromBack = async () => {
+  try {
+    const result = await fetch("django server").then((res) => {
+      return res.json();
+    });
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
